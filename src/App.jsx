@@ -15,6 +15,7 @@ import { Button } from "./components/Button"
 import { TodoForm } from "./components/TodoForm"
 import TodoContext from "./components/TodoProvider/TodoContext"
 import { TodoGroup } from "./components/TodoGroup"
+import { EmptyState } from "./components/EmptyState"
 
 // const todos = [
 //   {
@@ -141,6 +142,8 @@ function App() {
             heading="Para estudar"
             items={todos.filter(t => !t.completed)}
           />
+
+          {todos.length == 0 && <EmptyState />}
 
           <TodoGroup
             heading="Concluído"
