@@ -105,6 +105,12 @@ function App() {
     })
   }
 
+  const deleteTodo = (todo) => {
+    setTodos(prevState => {
+      return prevState.filter(t => t.id != todo.id)
+    })
+  }
+
   return (
     <main>
       <Container>
@@ -118,13 +124,23 @@ function App() {
           <SubHeading>Para estudar</SubHeading>
           <ToDoList>
             {todos.filter(t => !t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted}/>
+              return <ToDoItem 
+              key={t.id} 
+              item={t} 
+              onToggleCompleted={toggleTodoCompleted}
+              onDeleteTodo={deleteTodo}
+              />
             })}
           </ToDoList>
           <SubHeading>Concluído</SubHeading>
           <ToDoList>
             {todos.filter(t => t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted}/>
+              return <ToDoItem 
+              key={t.id} 
+              item={t} 
+              onToggleCompleted={toggleTodoCompleted}
+              onDeleteTodo={deleteTodo}
+              />
             })}
           </ToDoList>
           <Footer>
