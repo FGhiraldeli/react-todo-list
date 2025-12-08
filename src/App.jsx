@@ -63,11 +63,11 @@ function App() {
   const { todos, addTodo } = use(TodoContext)
 
   const toggleDialog = () => {
-    setShowDialog(!setShowDialog)
+    setShowDialog(!showDialog)
   }
 
-  const handleFormSubmit = (FormData) => {
-    addTodo(FormData)
+  const handleFormSubmit = (formData) => {
+    addTodo(formData)
     toggleDialog()
   }
 
